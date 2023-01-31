@@ -16,7 +16,7 @@ module.exports = {
             response.send("aaa");
         } catch(PrismaClientKnownRequestError) {
             console.log("[Server] User already exists");
-            response.status(401);
+            response.status(401).send('user already yup');
         }
     }
 }

@@ -1,3 +1,5 @@
+import { NextFunction, Request, Response } from "express";
+
 const fs = require('fs');
 const { Router } = require('express');
 
@@ -6,6 +8,14 @@ interface Route {
     method: string;
     run: Function;
 };
+
+const handleErrorAsync = (func: Function) => async (request: Request, response: Response, next: NextFunction) => {
+    try {
+        await func(request, response, next);
+    } catch (err) {
+        next(err);
+    }
+}
 
 function load_route_file(app: any, path: String, file: String) {
     const folder_router = Router();
@@ -18,7 +28,7 @@ function load_route_file(app: any, path: String, file: String) {
             console.log(`\t${name}: ERROR Incorrect file format`);
             return;
         }
-        folder_router[event.method](`/${event.subpath}`, event.run.bind(null));
+        folder_router[event.method](`/${event.subpath}`, handleErrorAsync(event.run.bind(null)));
         console.log(`\t${name}: ${path}${event.subpath}`);
     }
     app.use(path, folder_router);
