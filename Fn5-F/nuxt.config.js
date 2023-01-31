@@ -1,7 +1,7 @@
 import { defineNuxtConfig } from "nuxt3"
 
 export default defineNuxtConfig({
-    css: ["@/assets/css/styles.css"],
+    css: ["@/assets/styles/style.css"],
     build: {
         postcss: {
             postcssOptions: {
