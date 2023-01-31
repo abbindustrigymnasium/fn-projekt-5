@@ -1,5 +1,5 @@
 <template>
-    <div>oii</div>
+    <div class="text-3xl font-bold underline">oii</div>
 </template>
 
 <script>
