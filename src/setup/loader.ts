@@ -29,7 +29,7 @@ function load_route_file(app: any, path: String, file: String) {
             return;
         }
         folder_router[event.method](`/${event.subpath}`, handleErrorAsync(event.run.bind(null)));
-        console.log(`\t${name}: ${path}${event.subpath}`);
+        console.log(`\t${event.method.toUpperCase()}\t${name}: ${path}${event.subpath}`);
     }
     app.use(path, folder_router);
 }

@@ -1,22 +1,18 @@
 import { Request, Response } from "express";
 
 module.exports = {
-    subpath: 'add',
-    method: 'get',
+    subpath: '',
+    method: 'post',
     run: async function(request: Request, response: Response) {
         let prisma = request.app.get("prisma");
         const query = request.query;
-
         try {
             const user = await prisma.user.create({
                 data: query
             })
-            console.log(`[Server] Added user '${query.username}'`);
-            console.log(user);
-            response.send("aaa");
+            response.status(201).send();
         } catch(PrismaClientKnownRequestError) {
-            console.log("[Server] User already exists");
-            response.status(401).send('user already yup');
+            response.status(406).send("User with that name or email already exists");
         }
     }
 }
