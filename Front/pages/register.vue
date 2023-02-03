@@ -6,18 +6,18 @@
                 <h1 class="text-5xl mt-2 font-serif">Register</h1>
                 </div>
                 <div class="flex justify-center flex-col">
-                    <input class="px-4 h-8 mx-16 mt-4 bg-gray-700 rounded-lg" type="text" v-model="UserEmail" placeholder="Email ex.Jimny.bob@example.com">
-                    <input class="px-4 h-8 mx-16 mt-4 bg-gray-700 rounded-lg" type="text" v-model="Username" placeholder="Username ex.JimnyBob77">
-                    <input class="px-4 h-8 mx-16 mt-4 bg-gray-700 rounded-lg" type="password" v-model="Password" placeholder="Password">
-                    <input class="px-4 h-8 mx-16 mt-4 bg-gray-700 rounded-lg" type="password" v-model="PasswordCheck" placeholder="Confirm Password">
+                    <input class="px-4 h-8 mx-16 mt-4 bg-gray-700 rounded-lg focus:bg-gray-500 focus:outline-none" type="text" v-model="UserEmail" placeholder="Email ex.Jimny.bob@example.com">
+                    <input class="px-4 h-8 mx-16 mt-4 bg-gray-700 rounded-lg focus:bg-gray-500 focus:outline-none" type="text" v-model="Username" placeholder="Username ex.JimnyBob77">
+                    <input class="px-4 h-8 mx-16 mt-4 bg-gray-700 rounded-lg focus:bg-gray-500 focus:outline-none" type="password" v-model="Password" placeholder="Password">
+                    <input class="px-4 h-8 mx-16 mt-4 bg-gray-700 rounded-lg focus:bg-gray-500 focus:outline-none" type="password" v-model="PasswordCheck" placeholder="Confirm Password">
                 </div>
                 <div class="flex justify-center">  
-                    <input class="mt-4 mr-2" type="checkbox" name="TOS" v-model="acceptTOS">
-                    <p class="mt-4 text-white text-sm">I have read and agree to the <a class="no-underline hover:underline" href="/TOS">Terms Of Service</a></p>
+                    <input class="mt-4 mr-2 focus:outline-none" type="checkbox" name="TOS" v-model="acceptTOS">
+                    <p class="mt-4 text-white text-sm">I have read and agree to the <a class="no-underline hover:underline focus:outline-none focus:underline" href="/TOS">Terms Of Service</a></p>
                 </div>
                 <div class="flex justify-center pt-8 space-x-24">
-                    <button class="bg-teal-500 h-16 w-24 text-2xl rounded-xl hover:bg-teal-300" @click="Submit">Register</button>
-                    <button class="bg-teal-500 h-16 w-24 text-2xl rounded-xl hover:bg-red-500" >Cancel</button>
+                    <button class="bg-teal-500 h-16 w-24 text-2xl rounded-xl hover:bg-teal-700 focus:outline-none focus:bg-teal-700" >Register</button>
+                    <button class="bg-teal-500 h-16 w-24 text-2xl rounded-xl hover:bg-red-500 focus:outline-none focus:bg-red-500" >Cancel</button>
                 </div>
             </div>
         </div>
