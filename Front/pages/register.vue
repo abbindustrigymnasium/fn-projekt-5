@@ -13,32 +13,16 @@
                 </div>
                 <div class="flex justify-center">  
                     <input class="mt-4 mr-2" type="checkbox" name="TOS" v-model="acceptTOS">
-                    <p class="mt-4 text-white text-sm">I have read and agree to the <a class="underline" href="/TOS">Terms Of Service</a></p>
+                    <p class="mt-4 text-white text-sm">I have read and agree to the <a class="no-underline hover:underline" href="/TOS">Terms Of Service</a></p>
                 </div>
                 <div class="flex justify-center pt-8 space-x-24">
-                    <button class="bg-teal-500 h-16 w-24 text-2xl rounded-xl" @click="Submit">Register</button>
-                    <button class="bg-teal-500 h-16 w-24 text-2xl rounded-xl" >Cancel</button>
+                    <button class="bg-teal-500 h-16 w-24 text-2xl rounded-xl hover:bg-teal-300" @click="Submit">Register</button>
+                    <button class="bg-teal-500 h-16 w-24 text-2xl rounded-xl hover:bg-red-500" >Cancel</button>
                 </div>
             </div>
         </div>
     </div>
 </template>
-
-<script>
-export default {
-    data() {
-        return {
-            UserEmail = "";
-            Username = "";
-            Password = "";
-            PasswordCheck = "";
-        }
-    },
-    function Submit() {
-        console.log(UserEmail, " ", Username, " ", Password, " ", PasswordCheck )
-    }
-};
-</script>
 
 <style>
 body {
