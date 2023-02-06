@@ -10,15 +10,20 @@ model user {
     username String @unique
     email String @unique
     password_hash String 
-    profile_image String // antingen stäng till url eller sparar bilden någonstans
+    profile_image String // antingen sträng till url eller sparar bilden någonstans
+    comments comment[]
+    posts post[]
 }
 
 model comment {
     comment_id Int @id @default(autoincrement())
     content String
-    score Int
-    user_id Int 
-    parent Int 
+    score Int @default(0)
+    author user @relation(fields: [author_id], references: [id])
+    author_id Int @default(0)
+    parent post @relation(fields: [parent_id], references: [post_id])
+    parent_id Int @default(0)
+    post_time DateTime
 }
 
 model post {
@@ -26,8 +31,10 @@ model post {
     title String
     topic String 
     content String
-    score Int
-    user_id Int 
+    score Int @default(0)
+    author user @relation(fields: [author_id], references: [id])
+    author_id Int @default(0)
+    comments comment[]
 }
 
 datasource db {
