@@ -6,17 +6,15 @@
     <div class="bg-slate-900 text-white h-screen w-3/4">
       oiii
     </div>
-    <div :v-for="p in posts">
-      <!-- <NuxtLink :to="`/${p.post_id}`">{{ p.title }}</NuxtLink> -->
+    <div v-for="p in posts" :key="p.id">
+      <NuxtLink :to="`/${p.post_id}`">{{ p.title }}</NuxtLink>
     </div>
-    <button @click="Fin">X</button>
+    <div>{{ posts[1].title }}</div>
   </div>
 </template>
 
 <script setup>
 
 const { data: posts } = await useFetch('http://localhost:4000/posts')
-
-function Fin () { console.log(posts) }
 
 </script>
