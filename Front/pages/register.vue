@@ -2,7 +2,9 @@
 import { ref, watch, onMounted } from "vue"
 
 const isPassword = ref(false)
-const type = ref("password")
+const isPassCheck = ref(false)
+const pass = ref("password")
+const check = ref("password")
 const acceptTOS = ref(false)
 
 const UserEmail = ref()
@@ -12,15 +14,18 @@ const PasswordCheck = ref()
 
 watch(isPassword, (val) => {
 	if (val) {
-		type.value = "text"
+		pass.value = "text"
 	} else {
-		type.value = "password"
+		pass.value = "password"
 	}
 })
-
-function forgotPassword() {
-	alert("Hint: Your Cats Name!")
-}
+watch(isPassCheck, (val) => {
+    if (val) {
+        check.value = "text"
+    } else {
+        check.value = "password"
+    }
+})
 
 function Register() {
     console.log(Password.value, " ", PasswordCheck.value, " ", UserEmail.value, " ", Username.value)
@@ -38,10 +43,6 @@ function Register() {
         }
     }
 }
-
-onMounted(() => {
-  console.log(`Script Works!!`)
-})
 </script>
 
 <template>
@@ -52,13 +53,16 @@ onMounted(() => {
                 <h1 class="text-5xl mt-2 font-serif">Register</h1>
                 </div>
                 <div class="flex justify-center flex-col">
-                    <input class="px-4 h-8 w-72 mx-16 mt-4 bg-gray-700 rounded-lg focus:bg-gray-500 focus:outline-none" type="text" v-model="UserEmail" placeholder="Email ex. Jimny.bob@example.com">
-                    <input class="px-4 h-8 w-72 mx-16 mt-4 bg-gray-700 rounded-lg focus:bg-gray-500 focus:outline-none" type="text" v-model="Username" placeholder="Username ex.JimnyBob77">
+                    <input class="px-4 h-8 w-72 mx-16 mt-4 border-b-2 bg-transparent focus:border-white text-white outline-none invalid:border-red-500" type="text" v-model="UserEmail" placeholder="Email ex. Jimny.bob@example.com">
+                    <input class="px-4 h-8 w-72 mx-16 mt-4 border-b-2 bg-transparent focus:border-white text-white outline-none invalid:border-red-500" type="text" v-model="Username" placeholder="Username ex.JimnyBob77">
                     <div class="flex flex-row">   
-                    <input class="px-4 h-8 w-72 ml-16 mt-4 bg-gray-700 rounded-lg focus:bg-gray-500 focus:outline-none" v-model="Password" placeholder="Password" :type="type"> 
+                    <input class="px-4 h-8 w-72 ml-16 mt-4 border-b-2 bg-transparent focus:border-white text-white outline-none invalid:border-red-500" v-model="Password" placeholder="Password" :type="pass"> 
                     <input type="checkbox" class="ml-2 mt-4 focus:outline-none" v-model="isPassword">
                     </div>
-                    <input class="px-4 h-8 w-72 mx-16 mt-4 bg-gray-700 rounded-lg focus:bg-gray-500 focus:outline-none" type="password" v-model="PasswordCheck" placeholder="Confirm Password">
+                    <div class="flex flex-row">   
+                    <input class="px-4 h-8 w-72 ml-16 mt-4 border-b-2 bg-transparent focus:border-white text-white outline-none invalid:border-red-500" v-model="PasswordCheck" placeholder="Confirm Password" :type="check"> 
+                    <input type="checkbox" class="ml-2 mt-4 focus:outline-none" v-model="isPassCheck">
+                    </div>
                 </div>
                 <div class="flex justify-center">  
                     <input class="mt-4 mr-2 focus:outline-none" type="checkbox" name="TOS" v-model="acceptTOS">
