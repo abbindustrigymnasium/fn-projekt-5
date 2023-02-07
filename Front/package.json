@@ -3,6 +3,7 @@
   "scripts": {
     "build": "nuxt build",
     "dev": "nuxt dev",
+    "start": "json-server -p 4000 --watch fakedb.json",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare"
@@ -12,5 +13,8 @@
     "nuxt": "^3.1.0",
     "postcss": "^8.4.21",
     "tailwindcss": "^3.2.4"
+  },
+  "dependencies": {
+    "json-server": "^0.17.1"
   }
 }
