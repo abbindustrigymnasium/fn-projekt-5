@@ -2,12 +2,6 @@
     <div class="text-3xl font-bold underline">oii</div>
 </template>
 
-<script>
-export default {
-
-}
+<script setup>
+definePageMeta({ layout: 'alt' })
 </script>
-
-<style>
-
-</style>

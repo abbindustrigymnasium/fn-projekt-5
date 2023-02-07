@@ -1,0 +1,44 @@
+{
+    "posts": [
+        {
+            "post_id": 1,
+            "title": "Very 'wow' school",
+            "topic": "School",
+            "content": "Once I came to the very wow school. I though the school was very wow. After that I said WOW!!. Then Luca came up to me and said \"Are you serius right now?\"",
+            "score": -5,
+            "author": "Erling Burling Curling",
+            "author_id": 1,
+            "comments": []
+        },
+        {
+            "post_id": 2,
+            "title": "Very 'fun' school",
+            "topic": "School",
+            "content": "Once I came to the very 'fun' school. I though the school was very 'fun'. After that I said fun. Then Luca came up to me and said \"Are you serius right now?\"",
+            "score": 7,
+            "author": "Erling Burling Curling",
+            "author_id": 1,
+            "comments": []
+        },
+        {
+            "post_id": 3,
+            "title": "Very epic school",
+            "topic": "School",
+            "content": "Once I came to the very epic school. I though the school was very epic. After that I said EPIC!!. Then Luca came up to me and said \"Are you serius right now?\"",
+            "score": -3,
+            "author": "Erling Burling Curling",
+            "author_id": 1,
+            "comments": []
+        },
+        {
+            "post_id": 4,
+            "title": "Very jeton school",
+            "topic": "Jeton",
+            "content": "Once I came to the Jeton school. I though the school was very Jeton. After that I said F*CK Yeah!!. Then Luca came up to me and said \"Are you serius right now?\"",
+            "score": 30,
+            "author": "Erling Burling Curling",
+            "author_id": 1,
+            "comments": []
+        }
+    ]
+}
