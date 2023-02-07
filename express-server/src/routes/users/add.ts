@@ -1,25 +1,27 @@
 import { Request, Response } from "express";
+import { Prisma } from "@prisma/client"
 
 module.exports = {
     subpath: '',
-    method: 'get',
+    method: 'post',
     run: async function(request: Request, response: Response) {
         let prisma = request.app.get("prisma");
         const query = request.query;
         try {
-            console.log(query)
             const user = await prisma.user.create({
                 data: {
-                    username : "Theodor",
-                    email : "the.bes@gmail.com",
+                    username : query.username,
+                    email : query.email,
                     password_hash : "3i2e32nd90",
                     profile_image : "fakefake",
                 }
-                // data: query
             })
             response.status(201).send();
-        } catch(PrismaClientKnownRequestError) {
-            response.status(406).send("User with that name or email already exists");
+        } catch(err) {
+            if (err instanceof Prisma.PrismaClientKnownRequestError)
+                response.status(406).send("User with that name or email already exists");
+
+            throw err;
         }
     }
 }
