@@ -1,6 +1,8 @@
 <template>
-    <div class="bg-gradient-to-r from-teal-500 to-teal-400 h-72">
-        la
+    <div class="flex flex-col items-center bg-transparent">
+        <div class="bg-slate-800 text-teal-400 w-3/4">
+            ta
+        </div>
     </div>
 </template>
 
