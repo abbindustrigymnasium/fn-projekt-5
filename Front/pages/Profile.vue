@@ -7,7 +7,7 @@
 					<div class="flex flex-col">
 						<div class="flex flex-row">
 							<p class="text-7xl text-black ml-8">{{ Username || "Anonymous" }}</p>
-							<button class="w-16 h-16 mt-4 justify-end">
+							<button class="w-16 h-16 mt-4">
 								<img class="w-16 h-16" src="https://assets.stickpng.com/images/6002fa8551c2ec00048c6c79.png" alt="Settings Button" />
 							</button>
 						</div>
@@ -19,22 +19,15 @@
 				</div>
 				<div class="mx-16 mt-8">
 					<p class="text-white">For each post gotten from database:</p>
-					<div class="min-w-6/6 bg-gray-100 h-32 mt-2 mb-8 rounded-lg">
-						<div class="flex flex-row">
-							<img class="w-8 h-8 rounded-3xl ml-2 mt-2" src="https://t4.ftcdn.net/jpg/03/31/69/91/360_F_331699188_lRpvqxO5QRtwOM05gR50ImaaJgBx68vi.jpg" alt="Profile Pic" />
-							<input class="ml-2 text-3xl mt-2 bg-gray-300" v-model="NewPostTitle" />
-						</div>
-						<div>
-							<input class="ml-2 mr-2 border-bottom bg-gray-300 mt-2 w-5/6 h-16" v-model="NewPostContent" />
-						</div>
-					</div>
-					<div class="min-w-6/6 bg-gray-100 h-32 mt-2 rounded-lg" @click="RenderPost">
-						<div class="flex flex-row">
-							<img class="w-8 h-8 rounded-3xl ml-2 mt-2" src="https://t4.ftcdn.net/jpg/03/31/69/91/360_F_331699188_lRpvqxO5QRtwOM05gR50ImaaJgBx68vi.jpg" alt="Profile Pic" />
-							<p class="ml-2 text-3xl mt-1">{{ TitleOfPost }}</p>
-						</div>
-						<div>
-							<p class="ml-2 mr-2">{{ PostContent }}</p>
+					<div v-for="Post in Posts">
+						<div class="min-w-6/6 bg-gray-100 h-24 mt-2 rounded-lg hover: cursor-pointer" @click="RenderPost">
+							<div class="flex flex-row">
+								<img class="w-8 h-8 rounded-3xl ml-2 mt-2" src="https://t4.ftcdn.net/jpg/03/31/69/91/360_F_331699188_lRpvqxO5QRtwOM05gR50ImaaJgBx68vi.jpg" alt="Profile Pic" />
+								<p class="ml-2 text-3xl mt-1">{{ Post.Title }}</p>
+							</div>
+							<div>
+								<p class="ml-2 mr-2">{{ Post.Desc || "Description not available" }}</p>
+							</div>
 						</div>
 					</div>
 				</div>
@@ -48,31 +41,32 @@
 
 	const CurPosts = ref(92);
 	const TotalLikes = ref("142.2k");
-	const Username = ref("Admin User");
+	const Username = ref("Admin");
 	const TitleOfPost = ref("Title of the post");
-	const PostContent = ref("This should contain all the text in the current fetched post and then cycle to the next one and make a new div set");
+	const PostDescription = ref("This should contain the description of the fetched title");
+	const Posts = ref([
+		//test data
+		{ Title: "Test Title 1", Desc: "Test description of article number one", id: 1 },
+		{ Title: "Test Title 2", Desc: "Test description of article number two", id: 2 },
+		{ Title: "Test Title 3", Desc: "Test description of article number three", id: 3 },
+		{ Title: "Test Title 4", Desc: "Test description of article number four", id: 4 },
+		{ Title: "Test Title 5", id: 5 },
+		{ Title: "Test Title 6", Desc: "Test description of article number six", id: 6 },
+		{ Title: "Test Title 7", Desc: "Test description of article number seven", id: 7 },
+	]);
 
 	definePageMeta({ layout: false });
 
 	function RenderPost(PostName) {
-		//Render the post with the title that was clicked
+		console.log("Test");
+		//Render a page contaning the post with the title of the post that was clicked
 	}
-	//function GetInfo(Username or Email){}
-	//get profile pic of user as well as posts
-
-	//function Posts(){}
-	//load all posts returned by GetInfo() onto the page in either rows of 3 or one by one
+	//function GetInfo(Username or Email){
+	//get profile pic of user as well as posts and add post title, description and an id to the Posts list
+	//}
 </script>
 
 <style>
-	/*
-body {
-	background-image: url("https://media.istockphoto.com/id/1308684522/vector/blue-and-green-blurred-motion-abstract-background.jpg?s=612x612&w=0&k=20&c=ELAPwLRDLH1AbjPDL9RyKBuJR9vcJqn0j8Iz4JLfuCI=");
-	background-color: #cccccc;
-	background-repeat: repeat;
-	background-size: cover;
-}
-*/
 	body {
 		background-image: linear-gradient(to right, #40aa45, #0bad68, #00ae85, #00ae9d, #00acae, #00a3b2, #009ab4, #0090b3, #007da8, #006b9c, #00588e, #00467e);
 		background-size: cover;
