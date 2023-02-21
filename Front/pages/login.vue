@@ -51,8 +51,8 @@
 							class="bg-gradient-to-r from-teal-400 to-teal-500 px-6 py-2 rounded-xl"
 						>
 							Return Home
-						</button></NuxtLink
-					>
+						</button>
+					</NuxtLink>
 					<button
 						class="bg-gradient-to-r from-teal-400 to-teal-500 px-6 py-2 rounded-xl font-mono"
 						@click="Login"
@@ -69,6 +69,11 @@
 import { ref, watch } from "vue";
 
 definePageMeta({ layout: false });
+
+const _email = ref();
+const _password = ref();
+const _redirectPage = ref();
+const _errorMessage = ref();
 
 const _email = ref();
 const _password = ref();
@@ -102,7 +107,8 @@ function Login() {
 
 <style>
 body {
-	overflow-y: hidden; /* Hide vertical scrollbar */
+	overflow-y: hidden;
+	/* Hide vertical scrollbar */
 	background-image: url("https://media.istockphoto.com/id/1308684522/vector/blue-and-green-blurred-motion-abstract-background.jpg?s=612x612&w=0&k=20&c=ELAPwLRDLH1AbjPDL9RyKBuJR9vcJqn0j8Iz4JLfuCI=");
 	background-color: #cccccc;
 	background-repeat: no-repeat;

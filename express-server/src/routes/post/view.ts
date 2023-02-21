@@ -7,7 +7,7 @@ module.exports = {
     run: async function(request: Request, response: Response) {
         let prisma = request.app.get("prisma");
         const query = request.query;
-        // console.log(query);
+        console.log(query);
         // response.send(parseInt(query))
         const posts = await prisma.post.findMany({
             where :{
@@ -19,6 +19,7 @@ module.exports = {
                 post_id : parseInt(query.key as string)
             }
         })
+        // aaaa
 
 
         response.status(200).json(posts)

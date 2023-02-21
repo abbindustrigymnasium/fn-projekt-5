@@ -1,18 +1,23 @@
 <template>
-    <div class="h-screen">
+    <div class="neor">
         <NavBar />
-        <div class="h-14"></div>
-        <slot class="min-h-full" />
+        <slot />
         <Footer />
     </div>
 </template>
 
-<script>
-export default {
-    head () {
-        return {
-            title: "FN",
-        }
-    },
-}
+<script setup>
+
 </script>
+
+<style scoped>
+.neor {
+    background-image: url(../static/gruun.png);
+    height: fit-content;
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    object-fit: cover;
+}
+</style>
