@@ -1,6 +1,6 @@
 <template>
     <div class="neor">
-        <NavBar />
+        <Headir />
         <slot />
         <Footer />
     </div>
