@@ -68,6 +68,8 @@
 <script setup>
 import { ref, watch } from "vue";
 
+definePageMeta({ layout: false });
+
 const _email = ref();
 const _password = ref();
 const _redirectPage = ref();
