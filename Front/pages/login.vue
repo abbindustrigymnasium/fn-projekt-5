@@ -75,11 +75,6 @@ const _password = ref();
 const _redirectPage = ref();
 const _errorMessage = ref();
 
-const _email = ref();
-const _password = ref();
-const _redirectPage = ref();
-const _errorMessage = ref();
-
 const isPassword = ref(false);
 const isCorrectInformation = ref(false);
 const type = ref("password");
