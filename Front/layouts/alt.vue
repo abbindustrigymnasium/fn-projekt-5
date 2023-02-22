@@ -1,7 +1,7 @@
 <template>
     <div class="h-screen">
         <p class="text-2xl">ALT</p>
-        <Headir />
+        <NavBar />
         <slot class="min-h-full" />
         <Footer />
     </div>
