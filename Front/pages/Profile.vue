@@ -19,7 +19,7 @@
 				</div>
 				<div class="mx-16 mt-8">
 					<p class="text-white">For each post gotten from database:</p>
-					<div v-for="Post in Posts">
+					<div v-for="Post in Posts" :key="Post.id">
 						<div class="min-w-6/6 bg-gray-100 h-24 mt-2 rounded-lg hover: cursor-pointer" @click="RenderPost">
 							<div class="flex flex-row">
 								<img class="w-8 h-8 rounded-3xl ml-2 mt-2" src="https://t4.ftcdn.net/jpg/03/31/69/91/360_F_331699188_lRpvqxO5QRtwOM05gR50ImaaJgBx68vi.jpg" alt="Profile Pic" />
