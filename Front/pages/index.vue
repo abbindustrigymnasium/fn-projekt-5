@@ -5,10 +5,10 @@
       oi
     </div>
 
-    <div v-for="p in posts" :key="p.id" class="bg-slate-800 w-3/4 flex items-center">
-      <img src="../static/FN-codeflow.png">
-      <NuxtLink :to="`/${p.post_id}`" class="text-teal-400">{{ p.title }}</NuxtLink>
-    </div>
+    <NuxtLink :to="`/${p.post_id}`" v-for="p in posts" :key="p.id" class="bg-slate-800 w-3/4 flex items-center">
+      <img src="../static/buuk.png">
+      <p class="text-teal-400">{{ p.title }}</p>
+    </NuxtLink>
 
     <div class="bg-slate-900 text-white h-screen w-3/4">
       oiii
