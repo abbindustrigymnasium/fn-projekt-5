@@ -9,14 +9,12 @@ module.exports = {
 
         const newPost = await prisma.post.create({ // Hård kodad
             data: {
-                title : "Test Text",
+                title : "Second post",
                 topic : "testing",
-                content : "This is the content of the post. This is the content of the post. This is the content of the post. ",
-                score : 0,
+                content : "This is a second post!!!!!!!",
                 author: {
                     connect : {id : 1}
                 }
-                //author_id : 0,
             }
         })
         // const newComment = await prisma.post.create({ // Hård kodad
