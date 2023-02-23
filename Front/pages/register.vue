@@ -38,7 +38,7 @@ async function Register() {
             if (Password.value != PasswordCheck.value) {
                 alert("Passwords must match")
             } else {
-                const res = fetch('http://localhost:5000/users', {
+                const res = await fetch('http://localhost:5000/users', {
                     method: "POST",
                     mode: "cors",
                     headers: {
@@ -51,7 +51,9 @@ async function Register() {
                         password: Password.value
                     })
                 });
-                alert("Passwords match, user "+Username.value+" registered!")
+                if (res.status == 406) {
+                    alert("Username or email already in use");
+                }
             }
         }
     }

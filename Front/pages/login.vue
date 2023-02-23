@@ -52,7 +52,10 @@
 <script setup>
 import { ref, watch } from "vue"
 
-definePageMeta({ layout: false }); 
+definePageMeta({ layout: false });
+
+const router = useRouter();
+
 const _email = ref()
 const _password = ref()
 const _redirectPage = ref()
@@ -72,14 +75,25 @@ watch(isPassword, (val) => {
 function ForgotPassword () {
 	alert("Out of order!")
 }
-function Login () {
-	console.log("i Fun")
-	if (_email.value == "KalleKula@gmail.com" && _password.value == "Max123") {
-		alert("Sucessfully logged in! Please return to Home")
-		_errorMessage.value = "Sucess!"
+async function Login () {
+    const res = await fetch(`http://localhost:5000/users?email=${_email.value}&password_hash=${_password.value}`, 
+        {
+            method: "GET",
+            mode: "cors",
+            headers: {
+                "Access-Control-Allow-Origin": '*',
+                "Content-Type": "application/json"
+            }
+        });
+	if (res.status == 200) {
+		_errorMessage.value = "Sucess!";
+        router.push({path: "/"});
+    } else if (res.status == 406) {
+		_errorMessage.value = "*Incorrect password or email!";
 	} else {
-		_errorMessage.value = "*Incorrect password or email!"
-	}
+        _errorMessage.value = "An unknown error occured (check console)";
+        console.log(res);
+    }
 }
 </script>
 
