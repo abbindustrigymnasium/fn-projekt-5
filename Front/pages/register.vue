@@ -1,6 +1,8 @@
 <script setup>
 import { ref, watch, onMounted } from "vue"
 
+const router = useRouter();
+
 const isPassword = ref(false)
 const isPassCheck = ref(false)
 const pass = ref("password")
@@ -51,8 +53,13 @@ async function Register() {
                         password: Password.value
                     })
                 });
-                if (res.status == 406) {
+                if (res.status == 201) {
+                    router.push({path: "/"});
+                } else if (res.status == 406) {
                     alert("Username or email already in use");
+                } else {
+                    console.log(res);
+                    alert("Unknown error occured (check console)");
                 }
             }
         }
