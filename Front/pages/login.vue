@@ -61,6 +61,7 @@ const _errorMessage = ref()
 const isPassword = ref(false)
 const isCorrectInformation = ref(false)
 const type = ref("password")
+>>>>>>> b7abb036ca3edba07455df3fc779d9320a04c91c
 
 watch(isPassword, (val) => {
 	if (val) {

@@ -1,6 +1,7 @@
 const express = require('express');
 const { PrismaClient } = require('@prisma/client');
 const bodyParser = require('body-parser');
+const cors = require('cors');
 require('dotenv').config()
 
 const prisma = new PrismaClient();
@@ -10,10 +11,14 @@ const port = process.env.PORT || 5000;
 
 app.set('prisma', prisma);
 
+app.use(cors(
+        {
+            origin: '*'
+        }));
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json());
 
-const server = app.listen(process.env.PORT, () => {
+const server = app.listen(port, () => {
     console.log(`[Server] Listening on http://localhost:${port}`);
 });
 

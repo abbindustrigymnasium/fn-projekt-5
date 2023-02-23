@@ -27,7 +27,7 @@ watch(isPassCheck, (val) => {
     }
 })
 
-function Register() {
+async function Register() {
     console.log(Password.value, " ", PasswordCheck.value, " ", UserEmail.value, " ", Username.value)
     if (!Password.value || !UserEmail.value || !Username.value){
         alert("Fileds can not be empty!")
@@ -38,6 +38,19 @@ function Register() {
             if (Password.value != PasswordCheck.value) {
                 alert("Passwords must match")
             } else {
+                const res = fetch('http://localhost:5000/users', {
+                    method: "POST",
+                    mode: "cors",
+                    headers: {
+                        "Access-Control-Allow-Origin": '*',
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({
+                        email: UserEmail.value,
+                        username: Username.value,
+                        password: Password.value
+                    })
+                });
                 alert("Passwords match, user "+Username.value+" registered!")
             }
         }
