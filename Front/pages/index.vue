@@ -1,17 +1,17 @@
 <template>
-  <div class="min-h-screen flex flex-col items-center pt-16">
+  <div class="min-h-screen flex flex-col items-center">
 
     <div class="bg-slate-800 text-teal-400 w-3/4">
 
       <p class="flex justify-center text-2xl py-4">Articles</p>
 
-      <div v-for="p in posts" :key="p.id" class="flex items-center p-2">
+      <div v-for="p in posts" :key="p.id" class="flex justify-center p-2">
         <NuxtLink :to="`/${p.post_id}`"
-          class="bg-slate-900 w-full mx-24 my-4 px-4 flex flex wrap items-center rounded-br-3xl rounded-tl-3xl">
+          class="bg-slate-900 w-1/2 mx-24 my-4 px-4 flex flex wrap items-center rounded-br-3xl rounded-tl-3xl">
           <img src="../static/buuk.png" class="flex justify-start mx-2">
           <div class="px-8">
             <p class="text-teal-400 text-xl ">{{ p.title }}</p>
-            <p class="text-teal-400 text-md w-96 truncate">{{ p.content }}</p>
+            <p class="bg-slate-900 text-md w-96 truncate">{{ p.content }}</p>
           </div>
         </NuxtLink>
       </div>
@@ -21,29 +21,30 @@
       <div class="flex flex-row justify-around">
         <div class="bg-slate-900 py-8 px-6 rounded-br-3xl rounded-tl-3xl flex flex-col items-center">
           <p class="text-lg">Theodor</p>
-          <p>Backend</p>
+          <p class="bg-slate-900">Backend</p>
         </div>
         <div class="bg-slate-900 py-8 px-6 rounded-br-3xl rounded-tl-3xl flex flex-col items-center">
           <p class="text-lg">Zimon</p>
-          <p>Backend</p>
+          <p class="bg-slate-900">Backend</p>
         </div>
         <div class="bg-slate-900 py-8 px-6 rounded-br-3xl rounded-tl-3xl flex flex-col items-center">
           <p class="text-lg">Max</p>
-          <p>Frontend</p>
+          <p class="bg-slate-900">Frontend</p>
         </div>
         <div class="bg-slate-900 py-8 px-6 rounded-br-3xl rounded-tl-3xl flex flex-col items-center">
           <p class="text-lg">Erling</p>
-          <p>Frontend</p>
+          <p class="bg-slate-900">Frontend</p>
         </div>
         <div class="bg-slate-900 py-8 px-6 rounded-br-3xl rounded-tl-3xl flex flex-col items-center">
           <p class="text-lg">Neo</p>
-          <p>Frontend</p>
+          <p class="bg-slate-900">Frontend</p>
         </div>
       </div>
 
       <p class="flex justify-center text-2xl py-4">About the Site</p>
 
-      <p class="bg-slate-900 mx-24 my-4 px-4 p-4 text-center rounded-br-3xl rounded-tl-3xl">Lorem ipsum dolor sit amet
+      <p class="bg-slate-900 mx-24 my-4 px-4 p-4 text-center text-slate-400 rounded-br-3xl rounded-tl-3xl">Lorem ipsum
+        dolor sit amet
         consectetur,
         adipisicing elit.
         Numquam,
@@ -70,7 +71,8 @@
       <div class="flex flex-col justify-around">
         <div class="bg-slate-900 mx-24 my-4 py-4 rounded-br-3xl rounded-tl-3xl flex flex-col items-center">
           <p class="text-lg">Question</p>
-          <p class="text-center">Answer: Lorem ipsum dolor sit, amet consectetur adipisicing elit. Pariatur harum
+          <p class="text-center text-slate-400">Answer: Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+            Pariatur harum
             laborum rem
             assumenda?
             Repellat molestiae optio assumenda voluptas dolor sunt. Nam itaque ipsam praesentium repellendus quia sed,
@@ -78,7 +80,8 @@
         </div>
         <div class="bg-slate-900 mx-24 my-4 py-4 rounded-br-3xl rounded-tl-3xl flex flex-col items-center">
           <p class="text-lg">Question</p>
-          <p class="text-center">Answer: Lorem ipsum dolor sit, amet consectetur adipisicing elit. Pariatur harum
+          <p class="text-center text-slate-400">Answer: Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+            Pariatur harum
             laborum rem
             assumenda?
             Repellat molestiae optio assumenda voluptas dolor sunt. Nam itaque ipsam praesentium repellendus quia sed,
@@ -86,7 +89,8 @@
         </div>
         <div class="bg-slate-900 mx-24 my-4 py-4 rounded-br-3xl rounded-tl-3xl flex flex-col items-center">
           <p class="text-lg">Question</p>
-          <p class="text-center">Answer: Lorem ipsum dolor sit, amet consectetur adipisicing elit. Pariatur harum
+          <p class="text-center text-slate-400">Answer: Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+            Pariatur harum
             laborum rem
             assumenda?
             Repellat molestiae optio assumenda voluptas dolor sunt. Nam itaque ipsam praesentium repellendus quia sed,
@@ -101,6 +105,8 @@
 <script setup>
 
 const { data: posts } = await useFetch('http://localhost:4000/posts')
+
+if (!posts) { console.log("Failed to fetch posts") }
 
 </script>
 <style>
